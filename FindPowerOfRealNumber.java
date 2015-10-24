@@ -18,7 +18,7 @@ Using dynamic programming, computations can be reduced : This will be investigat
 
 public class FindPowerOfRealNumber {
 	
-	private static final Logger logger = Logger.getLogger("MatrixMultiplicationOptimal");
+	private static final Logger logger = Logger.getLogger("FindPowerOfRealNumber");
 	private static double result = 0.0;
 	public static double FindPow(double baseNumber, int exponent) {
 		int midRangeOfExponent;
