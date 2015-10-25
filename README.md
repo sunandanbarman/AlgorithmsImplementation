@@ -5,6 +5,7 @@ Algorithms so far implemented are :
 
 1. Optimizing matrix chain multiplication
 2. Computation x^y in logn time where y =2^n using DaC strategy
+3. Strassen algorithm implementation , with facility to generate log file which can be used to verify the manual calculations with computed values and vice versa. See the description of the file on explanation of how to generate the log file.
 
 The algorithms added/ to be added will/ do cover a variety of areas, such as graph theory, computational geometry etc.
 Major inspiration for dynamic algorithms solutions taken from CLRS book
