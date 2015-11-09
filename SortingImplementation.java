@@ -11,6 +11,53 @@ import java.io.IOException;
 * 4. Selection sort
 * 5. Radix sort
 * 6. Bucket sort
+* 7. Bubble sort
+* 8. Quick sort
+* 9. Counting sort
+* 10.Shell sort
+*/
+
+/**
+* Selection sort takes Time O(n^2) , however space complexity is only O(1)
+*/
+class SelectionSort {
+	private int arr_to_sort[];
+	public void setArrToSort(int arr_to_sort[]) {
+		this.arr_to_sort = arr_to_sort;
+	}	
+	public void printMergedArray(int sortedArray[]) {
+		for ( int i = 0 ; i < sortedArray.length;  i++) 
+			System.out.print(sortedArray[i] + " ");
+		System.out.println();
+	}
+	/**
+	* swaps ith index value of arr_to_sort with jth index
+	*/
+	public void swap(int i, int j) {
+		int swap 		= arr_to_sort[j];
+		arr_to_sort[j]  = arr_to_sort[i];
+		arr_to_sort[i] 	= swap;
+	}	
+	public void doSorting() {
+		int len = arr_to_sort.length;
+		int min;
+		for ( int i = 0 ; i < len; i++) {
+			min = i;
+			for ( int j = i + 1; j < len;j++) {
+				if ( arr_to_sort[j] < arr_to_sort[min] ) {
+					min = j;
+				}	
+			}
+			if ( min != i)
+				swap(i,min);	
+		}
+		printMergedArray(arr_to_sort);
+	}	
+	
+}	
+
+/**
+*
 */
 class MergeSort {
 	private int arr_to_sort[];
@@ -104,10 +151,7 @@ class SortingImplementation {
 		}
 		return nResult;
 	}	
-	public static void printMergedArray(int sortedArray[]) {
-		for ( int i = 0 ; i < sortedArray.length;  i++) 
-			System.out.print(sortedArray[i] + " ");	
-	}	
+	
 	public static void main(String[] args) { 
 		int elem = 0, dimension;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -126,15 +170,20 @@ class SortingImplementation {
 			int nCtr   = 0;
 			int[] inputArray =  new int[dimension];
 			System.out.println("Enter the " + dimension + " elements :");
-			//int[] inputArray = {5,4,3,5,6,8,-1,8,9,1,12};
 			while ( nCtr < dimension ) { 	
 				inputArray[nCtr] = getNumber(br,false);
 				nCtr++;
 			}
+			
+			
 			MergeSort mergeSort = new MergeSort();
 			mergeSort.setArrToSort(inputArray);
 			mergeSort.CallSortingFunction();
 			//SortingImplementation.printMergedArray(inputArray);
+			
+			SelectionSort sort = new SelectionSort();
+			sort.setArrToSort(inputArray);
+			sort.doSorting();
 		}
 		catch(Exception ex) {
 			ex.printStackTrace();
