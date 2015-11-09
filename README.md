@@ -13,5 +13,7 @@ Algorithms so far implemented are :
 
 5. 0/1 Knapsack algorithm implementation using dynamic programming technique. Algorithm as described in CLRS book, works in O(n*K) time , where n : number of items, and K: knapsack weight
 
+6. Major sorting algorithms ( Merge Sort, Heapsort, Insertion sort, Selection sort, Radix sort, Bucket sort) . This is an ongoing work right now.
+
 The algorithms added/ to be added will/ do cover a variety of areas, such as graph theory, computational geometry etc.
 Major inspiration for dynamic algorithms solutions taken from CLRS book
