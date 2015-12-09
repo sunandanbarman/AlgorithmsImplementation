@@ -1,4 +1,4 @@
-import java.io.BufferedReader;
+﻿import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
 import java.io.IOException;
@@ -17,6 +17,33 @@ import java.io.IOException;
 * 10.Shell sort
 */
 
+/**
+* Insertion sort algorithm time complexity : Average case( theta(n^2))
+*/
+class InsertionSort {
+	private int arr_to_sort[];
+	public void setArrToSort(int arr_to_sort[]) {
+		this.arr_to_sort = arr_to_sort;
+	}	
+	public void printMergedArray(int sortedArray[]) {
+		for ( int i = 0 ; i < sortedArray.length;  i++) 
+			System.out.print(sortedArray[i] + " ");
+		System.out.println();
+	}
+	public void doSorting() {
+		int j,x,arr_length = arr_to_sort.length;
+		for(int i=1; i<=arr_length-1;i++) {
+			x = arr_to_sort[i];
+			j = i;
+			while ( (j>0) && (arr_to_sort[j-1]  > x)) {
+				arr_to_sort[j] = arr_to_sort[j-1];
+				j--;
+			}	
+			arr_to_sort[j] = x;
+		}	
+		printMergedArray(arr_to_sort);
+	}	
+}	
 /**
 * Selection sort takes Time O(n^2) , however space complexity is only O(1)
 */
@@ -184,6 +211,10 @@ class SortingImplementation {
 			SelectionSort sort = new SelectionSort();
 			sort.setArrToSort(inputArray);
 			sort.doSorting();
+			
+			InsertionSort insertSort = new InsertionSort();
+			insertSort.setArrToSort(inputArray);
+			insertSort.doSorting();
 		}
 		catch(Exception ex) {
 			ex.printStackTrace();
