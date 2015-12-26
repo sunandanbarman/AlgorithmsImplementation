@@ -1,14 +1,14 @@
-﻿import java.io.BufferedReader;
+/****/
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
 import java.io.IOException;
-
+import java.io.BufferedReader;
 /**
 * File containing demonstration of various techniques of sorting
-* 1. Merge Sort
+* 1. Merge Sort *
 * 2. Heapsort
-* 3. Insertion sort
-* 4. Selection sort
+* 3. Insertion sort *
+* 4. Selection sort *
 * 5. Radix sort
 * 6. Bucket sort
 * 7. Bubble sort
@@ -153,7 +153,54 @@ class MergeSort {
 	}	
 }	
 
+class QuickSort {
+	
+	private int arr_to_sort[];
+	private int partitionIndex;
+	public void setArrToSort(int arr_to_sort[]) {
+		this.arr_to_sort = arr_to_sort;
+	}	
+	public void printMergedArray(int sortedArray[]) {
+		for ( int i = 0 ; i < sortedArray.length;  i++) 
+			System.out.print(sortedArray[i] + " ");
+		System.out.println();
 
+	}
+	//swaps the elements and returns the partition element required for recursion calls
+	private int partition(int arr[],int left,int right) {
+		int index = (right + left) / 2; // choosing a[n] as pivot element
+		while(left < right) {
+			while (arr[left] < arr[index])
+				left++;
+			while(arr[right] > arr[index])
+				right--;
+			int temp;
+			if ( left < right ) { // if ordering was correct, then left = right would happen
+			//Since left < right, means some element is out of order
+				temp = arr[right];
+				arr[right] = arr[left];
+				arr[left] = temp;
+				left++;
+				right--;	
+			}
+			
+		}
+		return left;
+	}	
+	
+	private void quicksort(int low,int high) {
+		int partitionIndex = partition(arr_to_sort,low,high);
+		if ( low < partitionIndex-1) {
+			quicksort(low,partitionIndex-1);
+		} else if (high > partitionIndex) {
+			quicksort(partitionIndex+1,high);
+		}
+	}
+	public void doSorting() {
+		quicksort(0,arr_to_sort.length-1);
+		printMergedArray(arr_to_sort);
+	}
+}
 class SortingImplementation {
 	public static int getNumber(BufferedReader br, boolean bDimension) throws IOException{
 		int nResult = 0;
@@ -208,13 +255,17 @@ class SortingImplementation {
 			mergeSort.CallSortingFunction();
 			//SortingImplementation.printMergedArray(inputArray);
 			
-			SelectionSort sort = new SelectionSort();
+			/*SelectionSort sort = new SelectionSort();
 			sort.setArrToSort(inputArray);
 			sort.doSorting();
 			
 			InsertionSort insertSort = new InsertionSort();
 			insertSort.setArrToSort(inputArray);
 			insertSort.doSorting();
+			*/
+			QuickSort quick = new QuickSort();
+			quick.setArrToSort(inputArray);
+			quick.doSorting();
 		}
 		catch(Exception ex) {
 			ex.printStackTrace();
