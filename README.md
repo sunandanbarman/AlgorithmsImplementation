@@ -15,5 +15,7 @@ Algorithms so far implemented are :
 
 6. Major sorting algorithms ( Merge Sort, Heapsort, Insertion sort, Selection sort, Radix sort, Bucket sort) . This is an ongoing work right now.
 
+7. Sieve of Eratosthenes implementation
+
 The algorithms added/ to be added will/ do cover a variety of areas, such as graph theory, computational geometry etc.
 Major inspiration for dynamic algorithms solutions taken from CLRS book
