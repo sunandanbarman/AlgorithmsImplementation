@@ -19,5 +19,11 @@ Algorithms so far implemented are :
 
 8. Sieve of Eratosthenes implementation
 
+9. Simple Balanced expression checker in Java using Stack. This was asked to me in coding round for Moziila firefox. I felt it would be be a good practice to do it in Java. I can't give out exact question detail because I don't remember :)
+
+10. 3-way quick sort
+
+11. Non recursive quicksort using stack
+
 The algorithms added/ to be added will/ do cover a variety of areas, such as graph theory, computational geometry etc.
 Major inspiration for dynamic algorithms solutions taken from CLRS book
