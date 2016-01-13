@@ -30,6 +30,38 @@ class SolveHanoi {
 		}
 	}
 }
+
+/*
+* The idea of the iterative solution is intuitive
+* Observing the odd number of disks, we see the pattern : Source -> destn , source -> aux, dest -> aux
+* Observing even # of disks, pattern we see is : Source -> aux, source -> dest, aux -> destn
+* Thus , depending on whether we have even/ odd # of disks, we can swap destn and aux poles, and 
+* use the same solution for all the cases
+*/
+class IterativeSolveHanoi {
+	private int numOfDisks;
+	private Stack<Integer> source, aux, dest;
+	IterativeSolveHanoi(int numOfDisks) {
+		this.numOfDisks = numOfDisks;
+		source = new Stack<>();
+	}
+	private void moveDisk(String fromPeg,String toPeg) {
+		System.out.println("Moving " + fromPeg + " to " + toPeg);
+	}
+	public void moveTower(String fromPeg,String toPeg,String interPeg) {
+		int numOfMoves = (int)Math.pow(2,numOfDisks)-1;
+		for(int i=1; i <= numOfMoves; i++) {
+			if ( i % 3 == 1) {
+				moveDisk(fromPeg,toPeg);
+			} else if ( i % 3 == 2) {
+				moveDisk(fromPeg,interPeg);
+			} else if (i % 3 == 0) {
+				moveDisk(toPeg,interPeg);
+			}
+		}
+	}
+	
+}
 class TowerOfHanoi {
 	
 	/**
@@ -64,6 +96,8 @@ class TowerOfHanoi {
 		}
 		SolveHanoi solve = new SolveHanoi(nDisks);
 		solve.moveTower(nDisks,"A","B","C");	
-		
+		System.out.println("******");
+		IterativeSolveHanoi iter= new IterativeSolveHanoi(nDisks);
+		iter.moveTower("A","B","C");
 	}
 }
