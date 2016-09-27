@@ -32,8 +32,8 @@ class InsertionSort {
 		System.out.println();
 	}
 	public void doSorting() {
-		int j,x,arr_length = arr_to_sort.length;
-		for(int i=1; i<=arr_length-1;i++) {
+		int j,x, N = arr_to_sort.length;
+		for(int i=1; i<=arr_to_sort.length-1;i++) {
 			x = arr_to_sort[i];
 			j = i;
 			while ( (j>0) && (arr_to_sort[j-1]  > x)) {
@@ -41,8 +41,10 @@ class InsertionSort {
 				j--;
 			}	
 			arr_to_sort[j] = x;
-		}	
+			System.out.println("*********");
+		}
 		printMergedArray(arr_to_sort);
+
 	}	
 }	
 /**
@@ -84,6 +86,18 @@ class SelectionSort {
 	
 }	
 
+class ShellSort {
+	private int arr_to_sort[];
+	public void setArrToSort(int arr_to_sort[]) {
+		this.arr_to_sort = arr_to_sort;
+	}	
+	public void printMergedArray(int sortedArray[]) {
+		for ( int i = 0 ; i < sortedArray.length;  i++) 
+			System.out.print(sortedArray[i] + " ");
+		System.out.println();
+	}	
+	
+}
 /**
 *
 */
@@ -169,7 +183,7 @@ class QuickSort {
 	}
 	//swaps the elements and returns the partition element required for recursion calls
 	private int partition(int arr[],int left,int right) {
-		int index = (right + left) / 2; // choosing a[n] as pivot element
+		int index = (right + left) / 2; // choosing a[n/2] as pivot element
 		while(left < right) {
 			while (arr[left] < arr[index])
 				left++;
@@ -396,7 +410,7 @@ class SortingImplementation {
 				nCtr++;
 			}
 			
-			System.out.println("With merge sort");
+			/*System.out.println("With merge sort");
 			MergeSort mergeSort = new MergeSort();
 			mergeSort.setArrToSort(inputArray);
 			mergeSort.CallSortingFunction();
@@ -407,7 +421,7 @@ class SortingImplementation {
 			sort.setArrToSort(inputArray);
 			sort.doSorting();
 			System.out.println("****************");
-			
+			*/
 			System.out.println("With insertion sort");
 			InsertionSort insertSort = new InsertionSort();
 			insertSort.setArrToSort(inputArray);
